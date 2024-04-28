@@ -1,5 +1,4 @@
-
-import { FidgetSpinner } from 'react-loader-spinner'
+import Loader from '../Loader/Loader';
 import { useEffect, useState } from 'react'
 import toast, { Toaster } from "react-hot-toast";
 import './App.css'
@@ -91,14 +90,7 @@ function App() {
   <div className='page'>
       <SearchBar onSearch={handleSearch} />
       {error && <ErrorMessage/>}
-      {isLoading && <FidgetSpinner
-  visible={true}
-  height="80"
-  width="80"
-  ariaLabel="fidget-spinner-loading"
-  wrapperStyle={{}}
-  wrapperClass="fidget-spinner-wrapper"
-  />
+      {isLoading && <Loader/>
 }
       {images.length > 0 && <ImageGallery onClick={handleOpenModal}  images={images}/>}
       {!hasReachedEnd && images.length > 0 && !isLoading && <LoadMoreBtn onClick={onClick} />}
